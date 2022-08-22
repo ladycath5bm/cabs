@@ -40,6 +40,7 @@ public class CabinRepository {
         repository.delete(cabin);
     }
 
+
 /*     public List<Cabin> findByCategory(Category category) {
         return repository.findByCategory(category);
     } */
