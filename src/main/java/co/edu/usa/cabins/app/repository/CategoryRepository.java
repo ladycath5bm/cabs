@@ -3,10 +3,12 @@ package co.edu.usa.cabins.app.repository;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import co.edu.usa.cabins.app.models.Category;
 import co.edu.usa.cabins.app.repository.crud.CategoryCrudRepository;
 
+@Repository
 public class CategoryRepository {
 
     @Autowired
