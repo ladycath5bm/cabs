@@ -1,13 +1,11 @@
 package co.edu.usa.cabins.app.repository;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import co.edu.usa.cabins.app.models.Cabin;
-import co.edu.usa.cabins.app.models.Category;
 import co.edu.usa.cabins.app.repository.crud.CabinCrudRepository;
 
 @Repository
@@ -40,8 +38,8 @@ public class CabinRepository {
         repository.delete(cabin);
     }
 
-
+}
 /*     public List<Cabin> findByCategory(Category category) {
         return repository.findByCategory(category);
     } */
-}
+
