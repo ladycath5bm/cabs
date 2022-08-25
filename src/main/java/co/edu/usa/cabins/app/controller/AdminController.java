@@ -14,36 +14,35 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.usa.cabins.app.models.Category;
-import co.edu.usa.cabins.app.services.CategoryService;
+import co.edu.usa.cabins.app.models.Admin;
+import co.edu.usa.cabins.app.services.AdminService;
 
 @RestController
-@RequestMapping("/Category")
+@RequestMapping("/Admin")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class CategoryController {
-    
+public class AdminController {
     @Autowired
-    private CategoryService service;
+    private AdminService service;
 
     @GetMapping("/all")
-    public List<Category> getAll() {
+    public List<Admin> getAll() {
         return service.getAll();
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category save(@RequestBody Category category) {
-        return service.save(category);
+    public Admin save(@RequestBody Admin admin) {
+        return service.save(admin);
     }
 
     @GetMapping("/{id}")
-    public Category getById(@PathVariable("id") Integer id){ //}, @RequestHeader Headers headers) {
+    public Admin getById(@PathVariable("id") Integer id){ //}, @RequestHeader Headers headers) {
         return service.getById(id);
     }
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category update(@RequestBody Category category) {
-        return service.update(category);
+    public Admin update(@RequestBody Admin admin) {
+        return service.update(admin);
     }
 }

@@ -14,36 +14,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.usa.cabins.app.models.Category;
-import co.edu.usa.cabins.app.services.CategoryService;
+import co.edu.usa.cabins.app.models.Score;
+import co.edu.usa.cabins.app.services.ScoreService;
 
 @RestController
-@RequestMapping("/Category")
+@RequestMapping("/Score")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class CategoryController {
+public class ScoreController {
     
     @Autowired
-    private CategoryService service;
+    private ScoreService service;
 
     @GetMapping("/all")
-    public List<Category> getAll() {
+    public List<Score> getAll() {
         return service.getAll();
     }
 
-    @PostMapping("/save")
+   /*  @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category save(@RequestBody Category category) {
-        return service.save(category);
-    }
+    public Score save(@RequestBody Score score) {
+        return service.save(score);
+    } */
 
     @GetMapping("/{id}")
-    public Category getById(@PathVariable("id") Integer id){ //}, @RequestHeader Headers headers) {
+    public Score getById(@PathVariable("id") Integer id){ //}, @RequestHeader Headers headers) {
         return service.getById(id);
     }
 
-    @PutMapping("/update")
+   /*  @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category update(@RequestBody Category category) {
-        return service.update(category);
-    }
+    public Score update(@RequestBody Score score) {
+        return service.update(score);
+    } */
 }

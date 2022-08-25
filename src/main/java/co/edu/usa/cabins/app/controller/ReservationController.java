@@ -14,36 +14,36 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import co.edu.usa.cabins.app.models.Category;
-import co.edu.usa.cabins.app.services.CategoryService;
+import co.edu.usa.cabins.app.models.Reservation;
+import co.edu.usa.cabins.app.services.ReservationService;
 
 @RestController
-@RequestMapping("/Category")
+@RequestMapping("/Reservation")
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class CategoryController {
+public class ReservationController {
     
     @Autowired
-    private CategoryService service;
+    private ReservationService service;
 
     @GetMapping("/all")
-    public List<Category> getAll() {
+    public List<Reservation> getAll() {
         return service.getAll();
     }
 
     @PostMapping("/save")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category save(@RequestBody Category category) {
-        return service.save(category);
+    public Reservation save(@RequestBody Reservation reservation) {
+        return service.save(reservation);
     }
 
     @GetMapping("/{id}")
-    public Category getById(@PathVariable("id") Integer id){ //}, @RequestHeader Headers headers) {
+    public Reservation getById(@PathVariable("id") Integer id){ //}, @RequestHeader Headers headers) {
         return service.getById(id);
     }
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
-    public Category update(@RequestBody Category category) {
-        return service.update(category);
+    public Reservation update(@RequestBody Reservation reservation) {
+        return service.update(reservation);
     }
 }
