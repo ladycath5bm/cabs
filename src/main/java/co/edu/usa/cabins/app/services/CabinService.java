@@ -1,7 +1,6 @@
 package co.edu.usa.cabins.app.services;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -37,8 +36,21 @@ public class CabinService {
 
     public Cabin update(Cabin cabin) {
          if (cabin.getId() != null) {
-            if (repository.findById(cabin.getId()) != null) {
+            Cabin newCabin = repository.findById(cabin.getId());
+            if(newCabin != null) {
                 //hacer validaciones antes de save hacer el de category y agregar validaciones, crear na capa de reglas de validación
+                if(cabin.getName() != null){
+                    newCabin.setName(cabin.getName());
+                }
+                if(cabin.getRooms() != null) {
+                    newCabin.setRooms(cabin.getRooms());
+                }
+                if(cabin.getBrand() != null) {
+                    newCabin.setBrand(cabin.getBrand());
+                }
+                if(cabin.getCategory() != null) {
+                    newCabin.setCategory(cabin.getCategory());
+                }
                 return repository.save(cabin);
             } else {
                 return cabin;

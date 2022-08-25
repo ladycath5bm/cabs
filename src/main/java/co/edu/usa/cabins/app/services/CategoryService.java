@@ -18,8 +18,8 @@ public class CategoryService {
         return repository.findAll();
     }
 
-    public Category getById(Category category) {
-        return repository.findById(category.getId());
+    public Category getById(Integer id) {
+        return repository.findById(id);
     }
 
     public Category save(Category category) {
@@ -33,5 +33,27 @@ public class CategoryService {
             }
         }
     }
+
+    public Category update(Category category){
+        if(category.getId() != null){
+            Category newCategory = repository.findById(category.getId());
+            if(newCategory != null){
+                if(category.getName() != null) {
+                    newCategory.setName(category.getName());
+                }
+                if(category.getDescription() != null){
+                    newCategory.setDescription(category.getDescription());
+                }
+                return repository.save(newCategory);
+            }else{
+                return category;
+            }
+        }else{
+            return category;
+        }
+    }
     
+    public void delete(Category category) {
+        repository.delete(category);
+    }
 }
